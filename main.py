@@ -11,10 +11,8 @@ users = [
     {"name": "Julia", "age": 24, "job": "HR Specialist"}
 ]
 
-def lambda_func(user):
-    return user['age'] > 27 and user['age'] < 30
+adults = filter(lambda user: user['age'] > 27, users)
 
-# adults = filter(lambda user: user['age'] > 27 and user['age'] < 30, users)
-adults = filter(lambda_func, users)
-print(list(adults))
+for a in adults:
+    print(a)
 
