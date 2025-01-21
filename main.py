@@ -1,11 +1,15 @@
+from pprint import pprint
+
 def menu() -> None:
     print("\nMenu:")
     print("\t1. Register User\n\t2. Filter users by age\n\t3. Filter users by job.\n\t4. Get all users")
 
+
 def print_users(users: list[dict]) -> list[dict]:
     print("\nA List of Users:")
-    for number, user in enumerate(users, start=1):
+    for number, user in enumerate(users, start = 1):
         print(f"{number}. {user['name']} is {user['age']} and {user['job']}.")
+        
 
 def add_user(users: list[dict]) -> list[dict]:
     print("Enter data for new user")
@@ -21,14 +25,30 @@ def add_user(users: list[dict]) -> list[dict]:
     users.append(new_user)
     return users
 
+
 def get_users_by_age(users: list[dict], age: int) -> list[dict]:
     pass
+    yosh = filter(lambda user: user["age"] == age, users)
+    pprint(list(yosh))
+
 
 def get_users_by_job(users: list[dict], job: str) -> list[dict]:
     pass
+    kasb = filter(lambda user: user["job"] == job, users)
+    pprint(list(kasb))
+    
 
 def main():
     users = [
+        {"name": "Alice", "age": 25, "job": "Engineer"},
+        {"name": "Bob", "age": 30, "job": "Designer"},
+        {"name": "Charlie", "age": 22, "job": "Developer"},
+        {"name": "Diana", "age": 28, "job": "Teacher"},
+        {"name": "Edward", "age": 35, "job": "Manager"},
+        {"name": "Fiona", "age": 27, "job": "Data Analyst"},
+        {"name": "George", "age": 29, "job": "Marketing Specialist"},
+        {"name": "Hannah", "age": 26, "job": "Researcher"},
+        {"name": "Ian", "age": 31, "job": "Accountant"},
         {"name": "Alice", "age": 25, "job": "Engineer"},
         {"name": "Bob", "age": 30, "job": "Designer"},
         {"name": "Charlie", "age": 22, "job": "Developer"},
@@ -51,7 +71,7 @@ def main():
             age = int(input("Enter min age: "))
             filtered_users = get_users_by_age(users, age)
         elif choice == '3':
-            job = int(input("Enter job: "))
+            job = input("Enter job: ")
             filtered_users = get_users_by_job(users, job)
         elif choice == '4':
             print_users(users)
