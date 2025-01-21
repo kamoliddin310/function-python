@@ -27,13 +27,11 @@ def add_user(users: list[dict]) -> list[dict]:
 
 
 def get_users_by_age(users: list[dict], age: int) -> list[dict]:
-    pass
     yosh = filter(lambda user: user["age"] == age, users)
     pprint(list(yosh))
 
 
 def get_users_by_job(users: list[dict], job: str) -> list[dict]:
-    pass
     kasb = filter(lambda user: user["job"] == job, users)
     pprint(list(kasb))
     
